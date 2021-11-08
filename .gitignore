@@ -32,6 +32,11 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+[Bb]uild/
+cmake-build-debug/
+
+# CLion
+.idea/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
