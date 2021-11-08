@@ -213,27 +213,27 @@ void Game::exchange(int xStart, int yStart, int xEnd, int yEnd)
         team = Piece::BLACK;
     }
 
-    SDL_SetRenderDrawColor(m_handler->m_renderer, 155, 103, 60, 255);
+    m_handler->DrawSquare(false);
     SDL_Rect rectangle = {0,
                           y_draw,
-                          m_handler->SCREEN_WIDTH / 4,
-                          m_handler->SCREEN_HEIGHT / 4 };
+                          m_handler->SCREEN_WIDTH / NUMBER_OF_PROMOTION_OPTIONS,
+                          m_handler->SCREEN_HEIGHT / NUMBER_OF_PROMOTION_OPTIONS};
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
-    SDL_Rect src = { 0, 0, 60, 60 };
+    SDL_Rect src = {0, 0, IMAGE_WIDTH, IMAGE_HEIGHT};
     m_handler->DrawRectangle(src, rectangle, text_rook);
 
-    SDL_SetRenderDrawColor(m_handler->m_renderer, 255, 255, 255, 255);
-    rectangle.x = m_handler->SCREEN_WIDTH / 4;
+    m_handler->DrawSquare(true);
+    rectangle.x = m_handler->SCREEN_WIDTH / NUMBER_OF_PROMOTION_OPTIONS;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_knight);
 
-    SDL_SetRenderDrawColor(m_handler->m_renderer, 155, 103, 60, 255);
-    rectangle.x = 2 * m_handler->SCREEN_WIDTH / 4;
+    m_handler->DrawSquare(false);
+    rectangle.x = 2 * m_handler->SCREEN_WIDTH / NUMBER_OF_PROMOTION_OPTIONS;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_bishop);
 
-    SDL_SetRenderDrawColor(m_handler->m_renderer, 255, 255, 255, 255);
-    rectangle.x = 3 * m_handler->SCREEN_WIDTH / 4;
+    m_handler->DrawSquare(true);
+    rectangle.x = 3 * m_handler->SCREEN_WIDTH / NUMBER_OF_PROMOTION_OPTIONS;
     SDL_RenderFillRect(m_handler->m_renderer, &rectangle);
     m_handler->DrawRectangle(src, rectangle, text_queen);
 

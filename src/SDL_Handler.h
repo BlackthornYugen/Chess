@@ -47,7 +47,7 @@ public:
 	//renders the background of the field
 	void renderBackground();
 
-    void DrawSquare(bool white);
+	void DrawSquare(bool white);
 
 };
 

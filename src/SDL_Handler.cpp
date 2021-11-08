@@ -22,20 +22,13 @@ SDL_Texture* SDL_Handler::loadImage(std::string filename)
 void SDL_Handler::renderBackground()
 {
 	bool white = true;
-	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+	DrawSquare(white);
 
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++)
 		{
-			if (white)
-			{
-				SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
-			}
-			else
-			{
-				SDL_SetRenderDrawColor(m_renderer, 155, 103, 60, 255);
-			}
+			DrawSquare(white);
 			white = !white;
 			SDL_Rect rectangle = { i * SCREEN_WIDTH / 8,
 								  j * SCREEN_HEIGHT / 8,
@@ -51,11 +44,11 @@ void SDL_Handler::undoPieceRender(int x, int y)
 {
 	if ((x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1))
 	{
-		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+		DrawSquare(true);
 	}
 	else
 	{
-		SDL_SetRenderDrawColor(m_renderer, 155, 103, 60, 255);
+		DrawSquare(false);
 	}
 	SDL_Rect rectangle = { x * SCREEN_WIDTH / 8,
 						  y * SCREEN_HEIGHT / 8,
@@ -123,4 +116,16 @@ bool SDL_Handler::init()
 		}
 	}
 	return true;
+}
+
+void SDL_Handler::DrawSquare(bool white)
+{
+	if (white)
+	{
+		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+	}
+	else
+	{
+		SDL_SetRenderDrawColor(m_renderer, 155, 103, 60, 255);
+	}
 }

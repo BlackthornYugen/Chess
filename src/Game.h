@@ -9,6 +9,10 @@
 #include "King.h"
 #include "Queen.h"
 
+static const int IMAGE_WIDTH = 60;
+static const int IMAGE_HEIGHT = 60;
+static const int NUMBER_OF_PROMOTION_OPTIONS = 4;
+
 class Game
 {
 public:
@@ -105,6 +109,6 @@ private:
     King* kb1;
     King* kl1;
     Queen* qb1; 
-    Queen* ql1; 
+    Queen* ql1;
 };
 
